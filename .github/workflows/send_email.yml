@@ -1,0 +1,28 @@
+name: Send Email
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Send email
+        env:
+          SMTP_SERVER: smtp.qq.com
+          SMTP_PORT: 465
+          MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          EMAIL_SUBJECT: GitHub Action 测试邮件
+          EMAIL_CONTENT: 这是一封由 GitHub Actions 自动发送的邮件。
+        run: python send_mail.py
