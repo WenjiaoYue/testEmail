@@ -4,7 +4,7 @@ import smtplib
 from email.message import EmailMessage
 
 
-SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.qq.com")
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtpauth.intel.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
 
 MAIL_SENDER = os.getenv("MAIL_SENDER")
