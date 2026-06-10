@@ -18,8 +18,8 @@ jobs:
 
       - name: Send email
         env:
-          SMTP_SERVER: smtp.qq.com
-          SMTP_PORT: 465
+          SMTP_SERVER: http://smtpauth.intel.com/
+          SMTP_PORT: 587
           MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
